@@ -1,0 +1,163 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url('../../assets/fondo.png') ;
+  background-size: 80%; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  margin: 0px 10px 0px 10px;
+  flex-flow: row wrap;
+  position: fixed;
+}
+header{
+  margin-top: 40px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #0ca789;
+}
+.info-madre-card {
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.info-madre-card p {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.estado-apta {
+  color: green;
+  font-weight: bold;
+}
+
+.estado-no-apta {
+  color: red;
+  font-weight: bold;
+}
+section {
+  margin: 0px 10px 0px 10px;
+  margin-top: 20px;
+  display: block;
+  font-size: 20px;
+  justify-items: center;
+}
+h3{
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #0ca789;
+}
+.tabla3{
+  display: block;
+  flex-wrap: wrap;
+  height: 450px;
+  overflow: hidden; 
+  overflow:auto;
+}
+.tabla2{
+  display: block;
+  margin: 0px 10px 0px 10px;
+  flex-flow: row wrap;
+  justify-items: center;
+}
+input{
+  text-align: center;
+  height: 40px;
+  border-radius: 10px;
+  border: solid 2px #0c16a7;
+  font-size: 15px;
+}
+.historial{
+  background-color: rgba(163, 243, 230, 0.3);
+}
+th, td {
+  border: 1px solid #0ca789;
+  padding: 12px 15px;
+  
+}
+th{
+  background: #0ca789;
+  color: white;
+}
+
+.ta{
+  border: none;
+}
+footer{
+  gap: 60%;
+	clear: both;
+  display: flex;
+  justify-content: left;
+  flex-flow: row wrap;
+  padding: 20px 0px;
+}
+.btngua{
+  background:#012677;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 150px;
+}
+
+.btnlim{
+  background:#1AAB8A;
+  color:#fff;
+  width: 150px;
+}
+.btnbus{
+  background:#012677;
+  color:#fff;
+  width: 150px;
+}
+
+.btnagre{
+  background:#012677;
+  color:#fff;
+  width: 200px;
+}
+
+.btnre{
+  background:#f24726;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 150px;
+}
+button{
+  border-radius: 10px;
+  border:none;
+  height:50px;
+  font-size:1.3em;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+  }
+  
+  .btnre:hover{
+  background:#fff;
+  color:#f24726;
+  }
+  
+  .btncrear:hover{
+  background:#fff;
+  color:#012677;
+  }
+  button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  background: #1AAB8A;
+  transition:400ms ease all;
+  }

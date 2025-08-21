@@ -1,0 +1,137 @@
+<form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+  <div class="content-container">
+    <div class="background-container"></div>
+    <div class="container">
+      <div class="header-card">
+        <h1 >Registrar Pase de Visita</h1>
+      </div>
+      <form [formGroup]="visitaForm" (ngSubmit)="onSubmit()">
+        <div class="form-grid">
+          <div class="form-row header-section">
+            <div class="form-col-right">
+              <h2>Fecha:</h2>
+              </div>
+              <div class="search-container">
+                <input matInput [value]="today | date: 'dd/MM/yyyy'" disabled >
+              </div>
+              <h3>Edad en dias</h3> 
+              <div class="search-container">
+                <input matInput [value]="edadEnDias" disabled>
+              </div>
+          </div>
+          <div class="cuna-section" >
+            <div style="text-align: center; ">  
+            <h2>Nro de cuna</h2>
+                <input matInput [value]="idCuna" disabled>
+            </div>
+              </div>
+  
+          <!-- Llamada telefónica -->
+          <div class="form-row">
+            <div class="form-col">
+              <h2>Llamada de teléfono</h2>
+              <mat-radio-group formControlName="llamadaTelefono">
+                <mat-radio-button value="Si">Sí</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+  
+          <!-- Pesos -->
+          <div class="form-row weights-section">
+            <div class="weight-group">
+              <h3>Peso del día anterior</h3>
+              <input matInput [value]="pesoAnterior + ' gr'" disabled>
+            </div>
+            
+            <div class="weight-group">
+              <h3>Peso actual (gr)</h3>
+              <input matInput formControlName="pesoDelDia" type="number" (blur)="calcularDelta()">
+            </div>
+            
+            <div class="weight-group">
+              <h3>Delta peso</h3>
+              <input matInput 
+                     [value]= "deltaPeso.toFixed(2) + '%' "
+                     disabled>
+            </div>
+          </div>
+  
+          <!-- Requerimientos -->
+          <div class="form-row">
+            <div class="form-col-full">
+              <h2 class="section-title">Requerimientos del día</h2>
+            </div>
+          </div>
+  
+          <div class="form-row requirements-grid">
+            <div class="requirement-item">
+              <h3>N° de tomas</h3>
+                <input matInput type="number" formControlName="nroTomas">
+            </div>
+            
+            <div class="requirement-item">
+              <h3>Cantidad por toma (ml)</h3>
+                <input matInput type="number" formControlName="cantidadToma">
+            </div>
+            
+            <div class="requirement-item">
+              <h3>Tipo de leche</h3>
+                <mat-select formControlName="tipoLeche">
+                  <mat-option value="Calostro" style="background-color: white;">Calostro</mat-option>
+                  <mat-option value="Transicion" style="background-color: white;">Transición</mat-option>
+                  <mat-option value="Madura" style="background-color: white;">Madura</mat-option>
+                </mat-select>
+            </div>
+          </div>
+  
+          <!-- Opciones adicionales -->
+          <div class="form-row options-grid" >
+            <div class="option-item" >
+              <h3>Contenido Energético</h3>
+                <mat-select formControlName="contenidoEnergetico">
+                  <mat-option value="Hipercalorico" style="background-color: white;">Hipercalórico</mat-option>
+                  <mat-option value="Normocalorico" style="background-color: white;">Normocalórico</mat-option>
+                  <mat-option value="Hipocalorico" style="background-color: white;">Hipocalórico</mat-option>
+                </mat-select>
+            </div>
+            
+            <div class="option-item">
+              <h3>Vía de Administración</h3>
+  
+                <mat-select formControlName="viaAdministracion">
+                    <mat-option value="SOG" style="background-color: white;">SOG</mat-option>
+                    <mat-option value="SUCCION" style="background-color: white;">Succión</mat-option>
+                    <mat-option value="CARRILLO" style="background-color: white;">Carrillo</mat-option>
+                </mat-select>
+            </div>
+            <div class="option-item combined-group">
+              <div class="radio-group">
+                <h3>Calostro Terapia</h3>
+                <mat-radio-group formControlName="calostroterapia">
+                  <mat-radio-button value="Si">Sí</mat-radio-button>
+                  <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="select-group">
+                <h3>Área</h3>
+                  <mat-select formControlName="area">
+                    <mat-option value="UCIN" style="background-color: white;">UCIN</mat-option>
+                    <mat-option value="QUIRURGICO" style="background-color: white;">Quirúrgico</mat-option>
+                    <mat-option value="INTERMEDIO" style="background-color: white;">Intermedio</mat-option>
+                    <mat-option value="ENGORDE" style="background-color: white;">Engorde</mat-option>
+                  </mat-select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row button-row">
+            <button type="button" class="red-button" (click)="regresar()">Regresar</button>
+            <button class="blue-button" type="submit" >
+              Registrar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  </form>

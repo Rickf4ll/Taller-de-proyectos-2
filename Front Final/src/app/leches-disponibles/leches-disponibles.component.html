@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>LECHES DISPONIBLES</h1>
+  </header>
+  <div class="totales-container">
+  <div class="total-card">
+    <h3>Leche Pasteurizada</h3>
+    <p class="total-value">{{ totalPasteurizada }} ml</p>
+  </div>
+  
+  <div class="total-card">
+    <h3>Leche Fórmula</h3>
+    <p class="total-value">{{ totalFormula }} ml</p>
+  </div>
+  
+  <div class="total-card total-general">
+    <h3>Total General</h3>
+    <p class="total-value">{{ totalGeneral }} ml</p>
+  </div>
+</div>
+  <div>
+    <div class="contenedor">
+      <div class="tablas-container">
+        <div *ngFor="let leche of leches" class="tipo-leche-container">
+          <h2 class="tipo-leche-titulo">{{ leche.tipo }}</h2>
+          <div class="leches-container">
+            <div *ngFor="let tipoCalorico of leche.tiposCaloricos" class="leche-tipo">
+              <h3 class="tipo-calorico-titulo">{{ tipoCalorico.calorico }}</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>CODIGO</th>
+                    <th>CANTIDAD ml</th>
+                    <th>KCAL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tipoCalorico.leches">
+                    <td>{{ item.codigoLeche }}</td>
+                    <td>{{ item.cantidadLeche }}</td>
+                    <td>{{ item.kcal }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ <!-- Modal para fórmulas (tabla) -->
+<div *ngIf="showFormulaModal" class="modal-overlay" (click)="closeFormulaModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>FÓRMULAS REGISTRADAS</h2>
+    <button class="close-modal" (click)="closeFormulaModal()">&times;</button>
+    
+    <div *ngIf="loadingFormulas" class="loading-message">
+      <p>Cargando fórmulas...</p>
+    </div>
+    
+    <div *ngIf="errorFormulas && !loadingFormulas" class="error-message">
+      <p>{{ errorFormulas }}</p>
+    </div>
+    
+    <div *ngIf="!loadingFormulas && !errorFormulas">
+      <table class="formula-table">
+        <thead>
+          <tr>
+            <th>CÓDIGO</th>
+            <th>KCAL</th> <!-- Cambiado de CANTIDAD a KCAL -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let formula of formulas">
+            <td>{{ formula.codigo }}</td> <!-- Usando codigoLecheFormula -->
+            <td>{{ formula.kcal }}</td> <!-- Usando kcal -->
+          </tr>
+        </tbody>
+      </table>
+      
+      <div *ngIf="formulas.length === 0" class="no-formulas">
+        <p>No se encontraron fórmulas registradas</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <button (click)="openFormulaModal()" class="btnmodal">
+      Ver Fórmulas
+    </button>
+    <button (click)="regresar()" class="btnre">
+      Regresar
+    </button>
+  </footer>
+</body>
+</html>

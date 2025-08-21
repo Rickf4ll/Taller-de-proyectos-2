@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="buscar-historia-clinica.component.css">
+</head>
+
+<body>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col">
+                <h2>BUSCAR FILIACIÓN DE PACIENTE</h2>
+            </div>
+        </div>
+
+        <!-- Campo de búsqueda -->
+        <div class="row">
+            <div class="col">
+                <div class="search-bar">
+                    <input type="text" [formControl]="formBusqueda"
+                        placeholder="Buscar por DNI de la Madre o Número de Cuna" />
+                    <button type="button" (click)="buscarPaciente()">BUSCAR</button>
+                </div>
+            </div>
+        </div>
+        <!-- Historia Clínica y DNI -->
+        <div class="row">
+            <div class="col">
+                <label for="historia-clinica">Historia Clínica:</label>
+                <input type="text" id="historia-clinica" [value]="form.get('idPaciente')?.value" readonly>
+            </div>
+            <div class="col">
+                <label for="dni-madre">DNI DE LA MADRE:</label>
+                <input type="text" id="dniMadre" formControlName="dniMadre" readonly>
+            </div>
+        </div>
+
+
+        <!-- ... (código anterior sin cambios) -->
+
+        <!-- Datos del paciente -->
+        <div class="row">
+            <div class="col">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" formControlName="nombrePaciente" readonly>
+            </div>
+            <div class="col">
+                <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
+                <input type="text" id="fecha-nacimiento" formControlName="fechaNacimientoPaciente" readonly>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="apellido-paterno">Apellido Paterno:</label>
+                <input type="text" id="apellido-paterno" formControlName="apellidoPaternoPaciente" readonly>
+            </div>
+            <div class="col">
+                <label for="genero">Género:</label>
+                <div class="gender-container">
+                    <label>
+                        <input type="radio" [value]="'masculino'" formControlName="generoPaciente"> Masculino
+                    </label>
+                    <label>
+                        <input type="radio" [value]="'femenino'" formControlName="generoPaciente"> Femenino
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="apellido-materno">Apellido Materno:</label>
+                <input type="text" id="apellido-materno" formControlName="apellidoMaternoPaciente" readonly>
+            </div>
+
+        </div>
+
+        <!-- Datos de la cuna -->
+        <div class="row" formGroupName="cuna">
+            <div class="col">
+                <label for="cuna-registrada">Cuna Registrada:</label>
+                <input type="text" id="cuna-registrada" formControlName="idCuna" readonly>
+            </div>
+        </div>
+
+
+        <!-- Botones -->
+        <div class="row">
+            <div class="col">
+                <button type="button" class="back-btn" (click)="regresar()">REGRESAR</button>
+            </div>
+            <div class="col">
+                <button class="view-btn" type="button" (click)="verHistoria()">VER FILIACIÓN</button>
+
+
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+/* Estilo global para el fondo de la página */
+body {
+  background-image: url('../../assets/fondo.png') ;
+  background-size: 80%; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  display: block;
+  margin: 0px 10px 0px 10px;
+  flex-flow: row wrap;
+}
+.tipo-leche-titulo {
+  font-size: 30px;
+  background-color: #ff5733;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+header{
+  margin-top: 40px;
+  text-align: center;
+  margin-left: 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #0ca789;
+}
+
+.leches-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Subcontenedor por tipo calórico */
+.leche-tipo {
+  width: 90%;
+  text-align: left;
+}
+
+.tipo-calorico-titulo {
+  font-size: 30px;
+  background-color: green;
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 2px solid black;
+  padding: 15px;
+  text-align: center;
+  color: black;
+  font-size: 1.5rem;
+}
+
+th {
+  background: #0ca789;
+  color: white;
+  font-size: 19px;
+}
+
+footer{
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  
+  padding: 40px 0px;
+}
+  
+  .btnre{
+  background:#f24726;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 150px;
+  }
+  button{
+  border-radius: 10px;
+  border:none;
+  height:50px;
+  font-size:1.3em;
+  }
+  
+  button:hover{
+  background:#fff;
+  color:#1AAB8A;
+  }
+  
+  .btnre:hover{
+  background:#fff;
+  color:#f24726;
+  }
+  button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  background: #1AAB8A;
+  transition:400ms ease all;
+  }
+  /* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #f24726;
+}
+
+/* Estilo para la tabla de fórmulas */
+.formula-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.formula-table th, .formula-table td {
+  border: 2px solid black;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.formula-table th {
+  background: #0ca789;
+  color: white;
+  font-size: 19px;
+}
+
+.formula-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilo para el nuevo botón */
+.btnmodal {
+  background: #0ca789;
+  color: #fff;
+  height: 60px;
+  font-size: 1.6em;
+  width: 150px;
+  margin-right: 15px;
+}
+
+.btnmodal:hover {
+  background: #fff;
+  color: #0ca789;
+  border: 2px solid #0ca789;
+}
+
+/* Ajuste para los botones en el footer */
+footer {
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  padding: 40px 0px;
+}
+/* leches-disponibles.component.css */
+.totales-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.total-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 10px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.total-general {
+  background-color: #e3f2fd;
+  border: 2px solid #bbdefb;
+}
+
+.total-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1976d2;
+  margin-top: 10px;
+}
+
+/* Estilos para resaltar cuando el stock es bajo */
+.stock-bajo {
+  color: #d32f2f;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}

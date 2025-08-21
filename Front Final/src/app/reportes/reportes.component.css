@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    color: #0ca789;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: right;
+    align-items: right;
+    margin: 0 7%;
+    width: 86%;
+    font-size: 25px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .titulo {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+  .filtros-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .combobox-group {
+    margin: 10px;
+    min-width: 200px;
+    font-size: large;
+  }
+
+  
+  .combobox-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .combobox-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .graficos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .grafico {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .grafico h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #3498db;
+  }
+  
+  .botones-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .btnlim{
+    background:#1AAB8A;
+    color:#fff;
+    width: 150px;
+  }
+  
+  .btnre{
+    background:#f24726;
+    color:#fff;
+    height:60px;
+    width: 150px;
+  }
+  button{
+    border-radius: 10px;
+    border:none;
+    height:50px;
+    font-size:1.3em;
+  }
+  button:hover{
+    background:#fff;
+    color:#1AAB8A;
+    }
+    
+    .btnre:hover{
+    background:#fff;
+    color:#f24726;
+    }
+    
+    .btncrear:hover{
+    background:#fff;
+    color:#012677;
+    }
+    button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    background: #1AAB8A;
+    transition:400ms ease all;
+    }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .filtros-container {
+      flex-direction: column;
+    }
+    
+    .graficos-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .botones-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .btn-regresar, .btn-limpiar {
+      width: 100%;
+    }
+  }

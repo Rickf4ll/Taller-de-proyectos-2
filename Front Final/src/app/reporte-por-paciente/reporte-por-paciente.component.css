@@ -1,0 +1,84 @@
+.reporte-paciente-container{
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.titulo-paciente{
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+.paciente-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+  
+.info-group label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.info-group input[type="text"],
+
+.info-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Para que el padding no afecte el ancho */
+  background-color: #eee;
+  cursor: not-allowed;
+}
+.grafico-paciente {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+  max-height: 500px; /* Tamaño máximo del contenedor */
+  overflow: hidden; /* Evita que el contenido desborde */
+}
+
+.grafico-paciente canvas {
+  max-width: 400px;
+  max-height: 400px; /* Limita el tamaño del canvas */
+  margin: 0 auto;
+}
+
+.grafico-paciente h3{
+  margin-bottom: 15px;
+  color: #333;
+}
+  
+
+.botones-paciente-container{
+  margin-top: 30px;
+  text-align: left;
+}
+.btn-regresar{
+  padding: 10px 20px;
+  background-color: #607d8b; /* Un color gris azulado */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-regresar:hover {
+  background-color: #455a64; /* Un tono más oscuro al pasar el mouse */
+}
+.grafico-paciente + div {
+  text-align: center;
+  margin-top: 15px;
+  color: #555;
+}

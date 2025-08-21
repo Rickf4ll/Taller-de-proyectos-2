@@ -1,0 +1,194 @@
+/* pacientes1.component.scss */
+.header-container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .custom-toolbar {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    .custom-text {
+      color: #000000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+  }
+}
+.custom-button.warn {
+  background-color: #ff4081; /* Color de Material Design para warn/accent */
+  color: white;
+  margin-left: 8px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f700;
+  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  height: 80px; /* Altura fija para consistencia */
+}
+
+.content-container {
+  margin-top: 64px;
+  padding: 20px;
+  padding-bottom: 100px;
+  position: relative;
+  min-height: calc(100vh - 64px);
+}
+
+.background-container {
+  position: fixed;
+  top: 13%;
+  left: 8%;
+  width: 85%;
+  height: 80%;
+  background-image: url('../../assets/logo\ banco\ de\ leche.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.section-container {
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  
+  .section-header {
+    padding: 15px 25px;
+    border-radius: 0;
+    
+    span {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 1.8em;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    &.uci-header { background-color: #de1b1b; }
+    &.quirurgico-header { background-color: #df7708; }
+    &.engorde-header { background-color: #10705b; }
+    &.intermedio-header { background-color: #115794; }
+  }
+}
+.btnagre{
+  background:#012677;
+  color:#fff;
+  width: 200px;
+}
+.btnagre{
+  background:#012677;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 300px;
+
+}
+.btnre{
+  background:#f24726;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 150px;
+}
+.btnre:hover{
+  background:#fff;
+  color:#f24726;
+  }
+button{
+  border-radius: 10px;
+  border:none;
+  height:50px;
+  font-size:1.3em;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+  }
+  
+  .btnaagre:hover{
+  background:#fff;
+  color:#012677;
+  }
+
+  button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  background: #1AAB8A;
+  transition:400ms ease all;
+  }
+.table-scroll-container {
+  max-height: 296px; /* Altura para 5 filas + cabecera (ajustado según altura de tus filas) */
+  overflow-y: auto;
+  background: #f8f9fa;
+
+  mat-table {
+    width: 100%;
+    
+    mat-header-row {
+      position: sticky;
+      background: #01a9a3;
+      z-index: 2;
+      top: 0;
+      
+      mat-header-cell {
+        color: white !important;
+        font-weight: bold;
+        font-size: 1.1em;
+      }
+    }
+
+    mat-row {
+      &:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+      
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+}
+
+.custom-button {
+  margin: 5px;
+  font-weight: bold;
+  font-family: Arial, Black, sans-serif;
+  border-radius: 10px;
+  
+  &.primary {
+    background-color: #ffe100;
+    color: #000000;
+  }
+
+  &.accent {
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #e9d32a;
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  
+  &-thumb {
+    background: #01a9a3;
+    border-radius: 4px;
+  }
+  
+  &-track {
+    background: #f1f1f1;
+  }
+}

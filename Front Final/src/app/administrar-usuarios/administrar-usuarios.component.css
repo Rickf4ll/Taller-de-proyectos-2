@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-image: url('../../assets/fondo.png');
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: auto;
+    margin: 10px;
+    height: 1300px;
+  }
+  
+  header {
+    margin-top: 40px;
+    text-align: center;
+    margin-left: 0px;
+    margin-bottom: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1AAB8A;
+  }
+  
+  section {
+    width: 100%;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+    font-size: 22px;
+    text-align: center;
+  }
+  
+  th, td {
+    border: 1px solid #000;
+    padding: 12px 15px;
+  }
+  
+  th {
+    background-color: #1AAB8A;
+    color: white;
+  }
+  
+  td {
+    background-color: transparent;
+    color: #000;
+  }
+  
+  input {
+    font-size: 20px;
+  }
+  
+  /* Botones */
+  button {
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    height: 50px;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #fff;
+    color: #1AAB8A;
+  }
+  
+  .btneli {
+    background: rgba(240, 66, 22, 0.781);
+    color: #fff;
+    width: 150px;
+  }
+  
+  .btnbus {
+    background: #012677;
+    color: #fff;
+    width: 150px;
+  }
+  
+  .btnre {
+    position: relative;
+    background: #f24726;
+    color: #fff;
+    height: 60px;
+    font-size: 1.6em;
+    width: 150px;
+    margin-right: 10px;
+  }
+  
+  .btnlim {
+    background: #1AAB8A;
+    color: #fff;
+    width: 150px;
+    height: 60px;
+    font-size: 1.6em;
+  }
+  
+  .btnre:hover {
+    background: #fff;
+    color: #f24726;
+  }
+  
+  .btnlim:hover {
+    background: #fff;
+    color: #1AAB8A;
+  }
+  
+  .btnbus:hover {
+    background: #fff;
+    color: #012677;
+  }
+  
+  .btneli:hover {
+    background: #fff;
+    color: rgba(240, 66, 22, 0.781);
+  }
+  
+  footer {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 0px;
+    gap: 200px;
+  }
+  

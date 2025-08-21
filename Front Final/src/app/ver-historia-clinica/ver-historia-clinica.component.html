@@ -1,0 +1,97 @@
+<html>
+
+<body>
+  <form>
+    <h2>HISTORIA CLÍNICA</h2>
+
+    <div class="row">
+      <div class="col">
+        <label for="nro_cuna">NRO de cuna:</label>
+        <p><strong>Cuna asignada:</strong> {{ paciente?.cuna?.idCuna }}</p>
+        <p><strong>Desde:</strong> {{ paciente?.fechaIngreso | date }}</p>
+      </div>
+
+      <div class="col">
+        <label for="dni_madre">DNI de la madre:</label>
+        <input type="text" id="dni_madre" [value]="paciente?.dniMadre" readonly />
+      </div>
+    </div>
+
+    <label for="nro_historia">NRO de historia clínica:</label>
+    <input type="text" id="nro_historia" [value]="paciente?.idPaciente" readonly />
+
+    <div class="estado" [ngClass]="{
+        'estado-alta': paciente?.estado === 'Paciente en alta',
+        'estado-normal': paciente?.estado !== 'Paciente en alta'
+      }">
+      Estado: {{ paciente?.estado }}
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" [value]="paciente?.nombrePaciente" readonly />
+      </div>
+    </div>
+
+    <label for="apellido_paterno">Apellido Paterno:</label>
+    <input type="text" id="apellido_paterno" [value]="paciente?.apellidoPaternoPaciente" readonly />
+
+    <label for="apellido_materno">Apellido Materno:</label>
+    <input type="text" id="apellido_materno" [value]="paciente?.apellidoMaternoPaciente" readonly />
+
+    <div class="row">
+      <div class="col">
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" [value]="paciente?.fechaNacimientoPaciente" readonly />
+      </div>
+
+      <div class="gender-container">
+        <input type="radio" id="masculino" name="genero" value="Masculino"
+          [checked]="paciente?.generoPaciente === 'Masculino'" disabled />
+        <label for="masculino">Masculino</label>
+
+        <input type="radio" id="femenino" name="genero" value="Femenino"
+          [checked]="paciente?.generoPaciente === 'Femenino'" disabled />
+        <label for="femenino">Femenino</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="peso_nacimiento">Peso de Nacimiento (gr):</label>
+        <input type="number" id="peso_nacimiento" [value]="paciente?.pesoNacimientoPaciente" readonly />
+      </div>
+      <div class="col">
+        <label for="edad_gestacional">Edad Gestacional (semanas):</label>
+        <input type="number" id="edad_gestacional" [value]="paciente?.edadGestacionalPaciente" readonly />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="detalle_peso">Detalles del Peso de Nacimiento:</label>
+        <input type="text" id="detalle_peso" [value]="detallePeso" [ngClass]="colorDetallePeso" readonly />
+      </div>
+      <div class="col">
+        <label for="detalle_edad">Detalles Edad Gestacional:</label>
+        <input type="text" id="detalle_edad" [value]="detalleEdad" [ngClass]="colorDetalleEdad" readonly />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="back-btn" (click)="regresar()">REGRESAR</button>
+      <button type="button" class="btn btn-primary" (click)="irARegistroMadre()">PROCURA</button>
+      <button type="button" class="register-btn" (click)="verActualizarHistoria()">ACTUALIZAR</button>
+    </div>
+<div class="row">
+  <button type="button" class="button" (click)="verFoto()" >Ver Consentimiento Informado</button>
+</div>
+    <button type="button" class="back-btn" (click)="darDeAlta()" *ngIf="paciente?.estado !== 'Paciente en alta'">
+      Dar de Alta
+
+    </button>
+  </form>
+</body>
+
+</html>

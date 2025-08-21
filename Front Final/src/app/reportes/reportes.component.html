@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="titulo">Reporte General</h1>
+
+    <div class="filtros-container">
+      <!-- Combobox para filtros -->
+      <div class="combobox-group">
+        <label for="tipoBebe">Según Peso al nacer:</label>
+        <select id="tipoBebe" [(ngModel)]="selectedTipoBebe" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let tipo of tiposBebe" [value]="tipo">{{tipo}}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="tiempo">Tiempo:</label>
+        <select id="tiempo" [(ngModel)]="selectedTiempo" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let tiempo of tiempos" [value]="tiempo">{{tiempo}}</option>
+        </select>
+      </div>
+
+      <div class="combobox-group">
+        <label for="tipoLeche">Tipo de leche:</label>
+        <select id="tipoLeche" [(ngModel)]="selectedTipoLeche" (change)="actualizarGraficos()">
+          <option value="">Todos</option>
+          <option *ngFor="let leche of tiposLeche" [value]="leche">{{leche}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="combobox-group">
+      <label for="edadGestacional">Edad gestacional:</label>
+      <select id="edadGestacional" [(ngModel)]="selectedEdadGestacional" (change)="actualizarGraficos()">
+        <option value="">Todas</option>
+        <option *ngFor="let edad of tiposEdadGestacional" [value]="edad">{{edad}}</option>
+      </select>
+    </div>
+    <!-- Gráficos -->
+    <div class="graficos-container">
+      <div class="grafico">
+        <h3>Distribución según tipo de leche</h3>
+        <canvas baseChart
+          [data]="pieChartData"
+          [type]="pieChartType"
+          [options]="pieChartOptions"
+          [legend]="pieChartLegend">
+        </canvas>
+      </div>
+
+      <div class="grafico">
+        <h3>Clasificación del recién nacido según edad gestacional</h3>
+        <canvas baseChart
+          [data]="{
+            labels: tiposEdadGestacional,
+            datasets: [{ data: edadGestacionalData, label: 'Cantidad', backgroundColor: '#ce93d8' }]
+          }"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+
+      <div class="grafico">
+        <h3>Clasificación del recién nacido según peso</h3>
+        <canvas baseChart
+          [data]="barChartData"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+
+      <div class="grafico">
+        <h3>Reporte de enfermedades neonatología</h3>
+        <canvas baseChart
+          [data]="{ labels: enfermedades, datasets: [{ data: enfermedadesData, label: 'Casos', backgroundColor: '#90caf9' }] }"
+          [type]="barChartType"
+          [options]="barChartOptions"
+          [legend]="barChartLegend">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="botones-container">
+      <button class="btnre" routerLink="/menu-areas">Regresar</button>
+      <button class="btnlim" (click)="limpiarFiltros()">Limpiar</button>
+    </div>
+  </div>
+</body>
+</html>

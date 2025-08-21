@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: url('../../assets/fondo.png') ;
+  background-size: 80%; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0px 20px 0px 20px;
+  display: block;
+  text-align: center;
+  align-items: center;
+}
+
+header{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #0ca789;
+}
+section {
+  margin-top: 20px;
+  font-weight: bold;
+  display: block;
+}
+form{
+  margin-top: 100px;
+}
+label {
+  margin-top: 50px;
+  display: inline-block;
+  width: 420px; /* Ancho fijo para alineación */
+  text-align: left;
+  vertical-align: middle;
+  font-size: 30px;
+}
+input[type="checkbox"]:not(old) + label {
+  cursor: pointer;
+}
+input, select {
+  margin-top: 50px;
+  width: 340px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: solid 2px #0ca789;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+
+footer{
+  margin-top: 210px;
+  gap: 40%;
+  clear: both;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+
+
+.btnre{
+  background:#f24726;
+  color:#fff;
+}
+.btnreg{
+  background:#012677;
+  color:#fff;
+}
+
+button{
+  border-radius: 10px;
+  border:none;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+
+.btnre:hover{
+  background:#fff;
+  color:#f24726;
+}
+
+.btncrear:hover{
+  background:#fff;
+  color:#012677;
+}
+button:before,button:after{
+  content:'';
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}

@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="crear-historia-clinica.component.css">
+</head>
+
+<body>
+    <!-- Formulario de Historia Clínica -->
+    <form [formGroup]="form" (ngSubmit)="create()">
+        <h2>FILIACIÓN DE PACIENTE RECIÉN NACIDO</h2>
+        <div class="col">
+            <div class="row">
+                <label for="idCuna">Cuna (ID):</label>
+                <input id="idCuna" type="text" formControlName="idCuna" placeholder="Ej: C-01 o I-02"
+                    (input)="onInputCuna($event)" style="text-transform: uppercase;" />
+            </div>
+            <div class="row">
+                <label for="nro_historia">Numero de Filiación:</label>
+                <input id="idPaciente" class="form-control" formControlName="idPaciente" maxlength="6"
+                     oninput="this.value = this.value.replace(/[^0-7]/g, '').slice(0,6)"
+                    required />
+            </div>
+
+            <div>
+                <label for="dniMadre">DNI de la Madre:</label>
+                <input id="dniMadre" class="form-control" formControlName="dniMadre" maxlength="8" pattern="^\d{8}$"
+                     oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,8)" required />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="nombres">Nombres del Recién Nacido:</label>
+                <input type="text" id="nombrePaciente" class="form-control" formControlName="nombrePaciente">
+            </div>
+            <div class="col">
+                <label for="area">Área:</label>
+                <select id="area" name="area" formControlName="area" class="form-control">
+                    <option value="UCIN">UCIN</option>
+                    <option value="UCIN QUIRURGICO">UCIN Quirúrgico</option>
+                    <option value="INTERMEDIO">Engorde</option>
+                    <option value="ENGORDE">Intermedio</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col">
+            <!-- Campos adicionales -->
+            <label for="apellido_paterno">Apellido Paterno del Recién Nacido:</label>
+            <input type="text" id="apellido_paterno" class="form-control" formControlName="apellidoPaternoPaciente">
+        </div>
+
+
+        <label for="apellido_materno">Apellido Materno del Recién Nacido:</label>
+        <input type="text" id="apellido_materno" class="form-control" formControlName="apellidoMaternoPaciente">
+
+        <div class="row">
+            <div class="col">
+                <label for="fecha_nacimiento">Fecha de Nacimiento del Recién Nacido:</label>
+                <input type="date" id="fecha_nacimiento" class="form-control" formControlName="fechaNacimientoPaciente">
+            </div>
+            <div class="col">
+                <label for="genero">Género:</label>
+                <div class="gender-container">
+                    <input type="radio" id="masculino" value="Masculino" formControlName="generoPaciente">
+                    <label for="masculino">Masculino</label>
+                    <input type="radio" id="femenino" value="Femenino" formControlName="generoPaciente">
+                    <label for="femenino">Femenino</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="peso_nacimiento">Peso de Nacimiento (gr):</label>
+                <input type="number" formControlName="pesoNacimientoPaciente" (input)="actualizarDetallePeso()" />
+            </div>
+            <div class="col">
+                <label for="edad_gestacional">Edad Gestacional (semanas):</label>
+                <input type="number" formControlName="edadGestacionalPaciente" (input)="actualizarDetalleEdad()" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="detalle_peso">Detalles del Peso de Nacimiento:</label>
+                <input type="text" formControlName="detallePesoNacimientoPaciente" readonly
+                    [ngClass]="colorDetallePeso" />
+            </div>
+            <div class="col">
+                <label for="detalle_edad">Detalles Edad Gestacional de la Madre:</label>
+                <input type="text" formControlName="detalleEdadGestacionalPaciente" readonly
+                    [ngClass]="colorDetalleEdad" />
+            </div>
+        </div>
+        <div formGroupName="diagnosticoPaciente">
+            <label for="observacion">Observación del Recién Nacido:</label>
+            <textarea id="observacion" formControlName="observacionEnfermedad"></textarea>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <button type="submit" (click)="create()">Registrar</button>
+                <div *ngIf="form.invalid && form.touched" class="texto-error">
+                    Por favor completa todos los campos requeridos.
+                  </div>
+                  
+            </div>
+            <div class="col">
+                <button type="button" class="back-btn" (click)="regresar()">REGRESAR</button>
+            </div>
+
+        </div>
+    </form>
+
+</body>
+
+</html>

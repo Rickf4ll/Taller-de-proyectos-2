@@ -1,0 +1,85 @@
+<!-- registro-leche.component.html -->
+<div class="container">
+  <div class="background-container"></div>
+  
+  <!-- Tarjeta azul para el título -->
+  <div class="title-card">
+    <h1>Registro de Leche Externa</h1>
+  </div>
+
+  <div class="table-container ">
+    <form [formGroup]="lecheForm" class="main-form">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-numero">N°</th>
+            <th class="col-cantidad">Cantidad (ml)</th>
+            <th class="col-hora">Hora</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="registros">
+          <tr *ngFor="let registro of registros.controls; let i = index" [formGroupName]="i">
+            <td>
+              <mat-form-field appearance="outline">
+                <input matInput formControlName="numero" readonly class="rounded-input" style="text-align: center; font-size: 20px;">
+              </mat-form-field>
+            </td>
+           
+            <td>
+              <mat-form-field appearance="outline">
+                <input matInput type="number" formControlName="cantidad" 
+                       min="0.01" step="0.01" class="rounded-input" style="text-align: center; font-size: 20px;">
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <input matInput type="time" formControlName="hora" class="rounded-input" style="text-align: center; font-size: 20px;">
+              </mat-form-field>
+            </td>
+            <td>
+              <button mat-icon-button color="warn" (click)="eliminarFila(i)">
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+
+      <div class="button-container">
+        <button mat-raised-button class="limpiar-btn" (click)="limpiarDatos()">
+          Limpiar
+        </button>
+        <button mat-raised-button class="agregar-btn" (click)="agregarFila()">
+          Agregar
+        </button>
+        <button mat-raised-button class="registrar-btn" (click)="guardarRegistros()">
+          Registrar
+        </button>
+        <button mat-raised-button class="regresar-btn" [routerLink]='["/donantes"]'>
+          Regresar
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="search-container">
+    <h2 class="existing-title">Registros Existentes</h2>
+    <div class="existing-table-wrapper">
+      <table class="existing-table">
+        <thead>
+          <tr>
+            <th class="col-cantidad">Cantidad (ml)</th>
+            <th class="col-hora">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registro of registrosExistentes">
+            <td class="centered-cell">{{ registro.cantidad }}</td>
+            <td class="centered-cell">{{ registro.hora }}</td>
+          </tr>
+          <tr *ngIf="registrosExistentes.length === 0">
+            <td colspan="3" class="no-records">No hay registros existentes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

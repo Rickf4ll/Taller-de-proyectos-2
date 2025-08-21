@@ -1,0 +1,214 @@
+/* registro-donante.component.css */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+
+}
+.background-container {
+  position: fixed;
+  top: 13%;
+  left: 8%;
+  width: 85%;
+  height: 80%;
+  background-image: url('../../assets/logo\ banco\ de\ leche.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  z-index: -1;
+}
+.section-card {
+  background-color: #11b1a1;
+  border-radius: 15px;
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Arial Black', sans-serif;
+  text-align: center;
+  display: block;
+}
+
+.form-section {
+  margin-bottom: 20px;
+  border: 1px solid #00000039;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 15px;
+  background-color: #cac8c800;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.section-header:hover {
+  background-color: #e9ecef;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.toggle-icon {
+  font-size: 0.9rem;
+  color: #1500b1;
+}
+
+.section-content {
+  padding: 20px;
+  background-color: #fff;
+  display: grid;
+  gap: 20px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.required {
+  color: #e74c3c;
+  font-size: 0.9em;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+.form-actions {
+  gap: 40%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.btnagre{
+  background:#012677;
+  color:#fff;
+  width: 200px;
+}
+.btnagre{
+  background:#012677;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 300px;
+
+}
+.btnre{
+  background:#f24726;
+  color:#fff;
+  height:60px;
+  font-size:1.6em;
+  width: 150px;
+}
+.btnre:hover{
+  background:#fff;
+  color:#f24726;
+  }
+button{
+  border-radius: 10px;
+  border:none;
+  height:50px;
+  font-size:1.3em;
+}
+button:hover{
+  background:#fff;
+  color:#1AAB8A;
+  }
+  
+  .btnaagre:hover{
+  background:#fff;
+  color:#012677;
+  }
+
+  button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  background: #1AAB8A;
+  transition:400ms ease all;
+  }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .two-column,
+  .three-column {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

@@ -1,0 +1,408 @@
+<div class="background-container"></div>
+<form [formGroup]="form" (ngSubmit)="create()">
+  <mat-card class="section-card">
+    <mat-card-title>Registro de Donadora</mat-card-title>
+  </mat-card>
+
+  <!-- Sección 1: Información Personal -->
+  <div class="form-section">
+    <div class="section-header" (click)="toggleSection('personal')">
+      <h3>Información Personal</h3>
+      <span class="toggle-icon">{{ sections.personal ? '▼' : '▶' }}</span>
+    </div>
+    <div class="section-content" *ngIf="sections.personal">
+      <div class="two-column">
+        <div class="form-group">
+          <label>DNI <span class="required">*</span></label>
+          <input type="number" formControlName="idDonadora" required>
+          <div class="error" *ngIf="form.get('idDonadora')?.hasError('required') && form.get('idDonadora')?.touched">
+            DNI requerido
+          </div>
+          <div class="error" *ngIf="form.get('idDonadora')?.hasError('minlength')">
+            Debe tener 8 dígitos
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Fecha Nacimiento <span class="required">*</span></label>
+          <input type="date" formControlName="fechaNacimientoDonadora">
+          <div class="error" *ngIf="form.get('fechaNacimientoDonadora')?.hasError('required') && form.get('fechaNacimientoDonadora')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="form-group">
+          <label>Nombres <span class="required">*</span></label>
+          <input type="text" formControlName="nombreDonadora">
+          <div class="error" *ngIf="form.get('nombreDonadora')?.hasError('required') && form.get('nombreDonadora')?.touched">
+            Nombre requerido
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Apellido Paterno <span class="required">*</span></label>
+          <input type="text" formControlName="apellidoPaternoDonadora">
+          <div class="error" *ngIf="form.get('apellidoPaternoDonadora')?.hasError('required') && form.get('apellidoPaternoDonadora')?.touched">
+            Apellido requerido
+          </div>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="form-group">
+          <label>Apellido Materno</label>
+          <input type="text" formControlName="apellidoMaternoDonadora">
+        </div>
+        
+        <div class="form-group">
+          <label>Talla (cm) <span class="required">*</span></label>
+          <input type="number" formControlName="tallaDonadora">
+          <div class="error" *ngIf="form.get('tallaDonadora')?.hasError('required') && form.get('tallaDonadora')?.touched">
+            Talla requerida
+          </div>
+          <div class="error" *ngIf="form.get('tallaDonadora')?.hasError('min')">
+            Valor mínimo: 0
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-header" (click)="toggleSection('contacto')">
+      <h3>Contacto y Dirección</h3>
+      <span class="toggle-icon">{{ sections.contacto ? '▼' : '▶' }}</span>
+    </div>
+    <div class="section-content" *ngIf="sections.contacto">
+      <div class="two-column">
+        <div class="form-group">
+          <label>Teléfono <span class="required">*</span></label>
+          <input type="number" formControlName="telefonoDonadora">
+          <div class="error" *ngIf="form.get('telefonoDonadora')?.hasError('required') && form.get('telefonoDonadora')?.touched">
+            Teléfono requerido
+          </div>
+          <div class="error" *ngIf="form.get('telefonoDonadora')?.hasError('pattern')">
+            Debe tener 9 dígitos
+          </div>
+        </div>
+      </div>
+  
+      <div class="three-column">
+        <div class="form-group">
+          <label>Departamento <span class="required">*</span></label>
+          <input type="text" formControlName="departamento">
+          <div class="error" *ngIf="form.get('departamento')?.hasError('required') && form.get('departamento')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Provincia <span class="required">*</span></label>
+          <input type="text" formControlName="provincia">
+          <div class="error" *ngIf="form.get('provincia')?.hasError('required') && form.get('provincia')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Distrito <span class="required">*</span></label>
+          <input type="text" formControlName="distrito">
+          <div class="error" *ngIf="form.get('distrito')?.hasError('required') && form.get('distrito')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label>Dirección Completa <span class="required">*</span></label>
+        <input type="text" formControlName="direccionActualDonadora">
+        <div class="error" *ngIf="form.get('direccionActualDonadora')?.hasError('required') && form.get('direccionActualDonadora')?.touched">
+          Dirección requerida
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-section">
+    <div class="section-header" (click)="toggleSection('salud')">
+      <h3>Historial de Salud</h3>
+      <span class="toggle-icon">{{ sections.salud ? '▼' : '▶' }}</span>
+    </div>
+    <div class="section-content" *ngIf="sections.salud">
+      <div class="two-column">
+        <div class="form-group">
+          <label>Centro de salud <span class="required">*</span></label>
+          <input type="text" formControlName="centroSaludControlProcedencia">
+          <div class="error" *ngIf="form.get('centroSaludControlProcedencia')?.hasError('required') && form.get('centroSaludControlProcedencia')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label>N° Controles <span class="required">*</span></label>
+          <input type="number" formControlName="numeroControles">
+          <div class="error" *ngIf="form.get('numeroControles')?.hasError('required') && form.get('numeroControles')?.touched">
+            Campo obligatorio
+          </div>
+          <div class="error" *ngIf="form.get('numeroControles')?.hasError('min')">
+            Mínimo 0
+          </div>
+        </div>
+      </div>
+      
+      <div class="two-column">
+        <div class="form-group">
+          <label>Ocupación <span class="required">*</span></label>
+          <input type="text" formControlName="ocupacion">
+          <div class="error" *ngIf="form.get('ocupacion')?.hasError('required') && form.get('ocupacion')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Enfermedad Actual <span class="required">*</span></label>
+          <input type="text" formControlName="enfermedadActual">
+          <div class="error" *ngIf="form.get('enfermedadActual')?.hasError('required') && form.get('enfermedadActual')?.touched">
+            Campo obligatorio
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-section">
+    <div class="section-header" (click)="toggleSection('pruebas')">
+      <h3>Pruebas Médicas</h3>
+      <span class="toggle-icon">{{ sections.pruebas ? '▼' : '▶' }}</span>
+    </div>
+    <div class="section-content" *ngIf="sections.pruebas">
+      <!-- Validación para radio groups -->
+      <div class="two-column">
+        <div class="form-group">
+          <label>Transfusión de sangre <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="Si" formControlName="transfusionSangreMadre"> Sí
+            </label>
+            <label>
+              <input type="radio" value="No" formControlName="transfusionSangreMadre"> No
+            </label>
+          </div>
+          <div class="error" *ngIf="form.get('transfusionSangreMadre')?.hasError('required') && form.get('transfusionSangreMadre')?.touched">
+            Selección requerida
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Consumo cigarros <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="Si" formControlName="consumoCigarros"> Sí
+            </label>
+            <label>
+              <input type="radio" value="No" formControlName="consumoCigarros"> No
+            </label>
+          </div>
+          <div class="error" *ngIf="form.get('consumoCigarros')?.hasError('required') && form.get('consumoCigarros')?.touched">
+            Selección requerida
+          </div>
+        </div>
+      </div>
+  
+      <!-- Repetir el mismo patrón para los demás grupos de radio -->
+      <div class="two-column">
+        <div class="form-group">
+          <label>Consumo drogas <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="Si" formControlName="consumoDrogas"> Sí
+            </label>
+            <label>
+              <input type="radio" value="No" formControlName="consumoDrogas"> No
+            </label>
+          </div>
+          <div class="error" *ngIf="form.get('consumoDrogas')?.hasError('required') && form.get('consumoDrogas')?.touched">
+            Selección requerida
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Consumo medicamentos <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" value="Si" formControlName="consumoMedicamentos"> Sí
+            </label>
+            <label>
+              <input type="radio" value="No" formControlName="consumoMedicamentos"> No
+            </label>
+          </div>
+          <div class="error" *ngIf="form.get('consumoMedicamentos')?.hasError('required') && form.get('consumoMedicamentos')?.touched">
+            Selección requerida
+          </div>
+        </div>
+      </div>
+  
+      <!-- Validación para selects con tres opciones -->
+      <div class="two-column">
+        <div class="form-group">
+          <label>Enfermedades <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="enfermedades" value="Positivo"> Positivo
+            </label>
+            <label>
+              <input type="radio" formControlName="enfermedades" value="Negativo"> Negativo
+            </label>
+            <label>
+              <input type="radio" formControlName="enfermedades" value="No_se_sabe"> No sabe
+            </label>
+          </div>
+          <div class="error" *ngIf="form.get('enfermedades')?.hasError('required') && form.get('enfermedades')?.touched">
+            Selección requerida
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Pruebas Serológicos <span class="required">*</span></label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="pruebaSerologicos" value="Positivo"> Positivo
+            </label>
+            <label>
+              <input type="radio" formControlName="pruebaSerologicos" value="Negativo"> Negativo
+            </label>
+            <label>
+              <input type="radio" formControlName="pruebaSerologicos" value="No_se_sabe"> No se sabe
+            </label>
+          </div>
+        </div>
+      </div>
+        <div class="two-column">
+          <div class="form-group">
+            <label>Prueba Sífilis <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" formControlName="pruebaSifilis" value="Positivo"> Positivo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaSifilis" value="Negativo"> Negativo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaSifilis" value="No_se_sabe"> No se sabe
+              </label>
+            </div>
+            <div class="error" *ngIf="form.get('pruebaSifilis')?.hasError('required') && form.get('pruebaSifilis')?.touched">
+              Selección requerida
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label>Prueba Hepatitis <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" formControlName="pruebaHepatitis" value="Positivo"> Positivo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaHepatitis" value="Negativo"> Negativo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaHepatitis" value="No_se_sabe"> No se sabe
+              </label>
+            </div>
+            <div class="error" *ngIf="form.get('pruebaHepatitis')?.hasError('required') && form.get('pruebaHepatitis')?.touched">
+              Selección requerida
+            </div>
+          </div>
+        </div>
+    
+        <!-- Fila 3 -->
+        <div class="two-column">
+          <div class="form-group">
+            <label>Prueba VIH <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" formControlName="pruebaVIH" value="Positivo"> Positivo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaVIH" value="Negativo"> Negativo
+              </label>
+              <label>
+                <input type="radio" formControlName="pruebaVIH" value="No_se_sabe"> No se sabe
+              </label>
+            </div>
+            <div class="error" *ngIf="form.get('pruebaVIH')?.hasError('required') && form.get('pruebaVIH')?.touched">
+              Selección requerida
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label>Examen Hemoglobina <span class="required">*</span></label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" formControlName="examenHemoglobina" value="Positivo"> Positivo
+              </label>
+              <label>
+                <input type="radio" formControlName="examenHemoglobina" value="Negativo"> Negativo
+              </label>
+              <label>
+                <input type="radio" formControlName="examenHemoglobina" value="No_se_sabe"> No se sabe
+              </label>
+            </div>
+            <div class="error" *ngIf="form.get('examenHemoglobina')?.hasError('required') && form.get('examenHemoglobina')?.touched">
+              Selección requerida
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="section-header" (click)="toggleSection('adicional')">
+      <h3>Información Adicional</h3>
+      <span class="toggle-icon">{{ sections.adicional ? '▼' : '▶' }}</span>
+    </div>
+    <div class="section-content" *ngIf="sections.adicional">
+      <div class="form-group">
+        <label>Donar leche <span class="required">*</span></label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" value="Si" formControlName="donarLeche"> Sí
+          </label>
+          <label>
+            <input type="radio" value="No" formControlName="donarLeche"> No
+          </label>
+        </div>
+        <div class="error" *ngIf="form.get('donarLeche')?.hasError('required') && form.get('donarLeche')?.touched">
+          Selección requerida
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Apta para donar <span class="required">*</span></label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" value="Si" formControlName="aptaParaDonar"> Sí
+          </label>
+          <label>
+            <input type="radio" value="No" formControlName="aptaParaDonar"> No
+          </label>
+        </div>
+        <div class="error" *ngIf="form.get('aptaParaDonar')?.hasError('required') && form.get('aptaParaDonar')?.touched">
+          Selección requerida
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Consentimiento</label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" multiple>
+        <div class="error" *ngIf="form.get('consentimientoDonadora')?.hasError('required')">
+          Documento requerido
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Botones finales -->
+    <div class="form-actions">
+      <button type="submit" class="btnagre">REGISTRAR</button>
+      <button type="button" class="btnre" [routerLink]='["/donantes"]'>REGRESAR</button>
+    </div>
+  </form>
+
+

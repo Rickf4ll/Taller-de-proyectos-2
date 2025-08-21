@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('../../assets/fondo.png') ;
+    background-size: 80%; 
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 10px;
+    display: block;
+    height: 1300px;
+    text-align: center;
+}
+
+header{
+    margin-top: 40px;
+    margin-left: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1AAB8A;
+}
+section {
+    margin: 3%;
+    width: 94%;
+    margin-top: 20px;
+    display: block;
+  }
+.form{
+    font-weight: bold;
+}
+.fornulario label {
+    font-size: 26px;
+    margin-top: 30px;
+    display: inline-block;
+    width: 380px; /* Ancho fijo para alineación */
+    text-align: left;
+    vertical-align: middle;
+  }
+.fornulario input{
+    margin-top:30px;
+    width: 340px;
+    height: 50px;
+    font-size: 25px;
+    border-radius: 10px;
+    border: solid 2px #0ca789;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .check{
+    gap: 40px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  .check label {
+    font-size: 26px;
+    margin-top: 10px;
+    display: inline-block;
+    width: 300px; /* Ancho fijo para alineación */
+    text-align: left;
+    vertical-align: middle;
+  }
+.check input{
+    margin-top:10px;
+    width: 250px;
+    height: 20px;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .confir{
+    margin-top: 30px;
+    gap: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+  }
+  .confir label {
+    font-size: 26px;
+    margin-top: 10px;
+    display: inline-block;
+    width: 20px; /* Ancho fijo para alineación */
+    text-align: left;
+    vertical-align: middle;
+  }
+.confir input{
+    margin-top:10px;
+    width: 20px;
+    height: 20px;
+    font-size: 25px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+
+ol{
+    gap: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+ul{
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    gap: 40px;
+}
+
+
+.admin{
+    display: block;
+    align-items: center;
+    font-size: large;
+}
+  footer{
+    margin-top: 150px;
+	clear: both;
+    gap: 35%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+/*estilos de botones*/
+
+
+.btncrear{
+    background:#012677;
+    color:#fff;
+}
+
+.btnre{
+    background:#f24726;
+    color:#fff;
+}
+button{
+    border-radius: 10px;
+    border:none;
+    position:relative;
+    height:60px;
+    font-size:1.6em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+  }
+  button:hover{
+    background:#fff;
+    color:#1AAB8A;
+  }
+
+  .btnre:hover{
+    background:#fff;
+    color:#f24726;
+  }
+
+  .btncrear:hover{
+    background:#fff;
+    color:#012677;
+  }
+  button:before,button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #1AAB8A;
+    transition:400ms ease all;
+  }
+  .input-con-password {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-con-password input {
+    flex: 1;
+    padding-right: 40px; /* espacio para el botón */
+  }
+  
+  .input-con-password button {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }

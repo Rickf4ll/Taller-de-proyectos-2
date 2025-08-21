@@ -1,0 +1,214 @@
+/* 📌 Permitir desplazamiento en toda la página */
+
+
+/* 📌 Fondo de la página con transparencia */
+body{
+    background-image: url('../../assets/fondo.png');
+    overflow-y: auto;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📌 Estilos generales */
+
+
+/* 📌 Contenedor del formulario */
+
+
+/* 📌 Diseño del formulario */
+form {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    color: teal;
+    font-weight: bold;
+}
+
+/* 📌 Campos de entrada */
+input, select, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Evita que el padding afecte el tamaño */
+}
+.styled-output {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+    margin-top: 5px;
+  }
+/* 📌 Botones */
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #009688; /* Color principal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00796b;
+}
+
+/* 📌 Contenedor de botones de acción */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 📌 Botón de regreso */
+.back-btn {
+    background-color: #757575;
+}
+
+.back-btn:hover {
+    background-color: #616161;
+}
+
+/* 📌 Botón de registro */
+.register-btn {
+    background-color: #3f51b5;
+}
+
+.register-btn:hover {
+    background-color: #303f9f;
+}
+
+/* 📌 Diseño de filas y columnas */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px; /* Evita que las columnas sean demasiado pequeñas */
+    padding: 10px;
+}
+
+/* 📌 Contenedor de selección de género */
+.gender-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 📌 Contenedor de enfermedades y botón de agregar */
+.input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* 📌 Botón de agregar enfermedad */
+.btn-plus {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn-plus:hover {
+    background-color: #0277bd;
+}
+
+/* 📌 Contenedor de nueva enfermedad */
+.nueva-enfermedad-container {
+    background-color: #ffffcc; /* Fondo amarillo claro */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* 📌 Botón para guardar nueva enfermedad */
+.btn-guardar {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-guardar:hover {
+    background-color: #303f9f;
+}
+input.rojo {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+  }
+  
+  input.amarillo {
+    background-color: #fff3cd;
+    border: 1px solid #ffecb5;
+    color: #664d03;
+  }
+  
+  input.verde {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+  }
+  .fondo-verde {
+    background-color: #d1e7dd;
+    border: 1px solid #badbcc;
+    color: #0f5132;
+  }
+  
+  .fondo-rojo {
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;
+    color: #842029;
+  }
+  
+  .fondo-morado {
+    background-color: #e2d5f4;
+    border: 1px solid #c1a8f0;
+    color: #3c096c;
+  }
+  
+  .fondo-negro {
+    background-color: #d6d6d6;
+    border: 1px solid #444;
+    color: #000;
+  }
+  .estado {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .estado-alta {
+    color: green;
+  }
+  .estado-normal {
+    color: black;
+  }

@@ -1,0 +1,48 @@
+<div class="reporte-paciente-container">
+  <h1 class="titulo-paciente">Reporte por Paciente</h1>
+  <div class="paciente-info">
+    <div class="info-group">
+      <label for="codigo">Código:</label>
+      <input id="codigo" type="text" [value]="paciente.codigo" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" type="text" [value]="paciente.nombre" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="apellidos">Apellidos:</label>
+      <input id="apellidos" type="text" [value]="paciente.apellidos" readonly>
+    </div>
+
+    <div class="info-group">
+      <label for="numeroCuna">Número de cuna:</label>
+      <input id="numeroCuna" type="text" [value]="paciente.numeroCuna" readonly>
+    </div>
+
+    <div class="info-group full-width">
+      <label for="diagnostico">Diagnóstico personal:</label>
+      <textarea id="diagnostico" [value]="paciente.diagnostico" readonly></textarea>
+    </div>
+  </div>
+
+  <div class="grafico-paciente" *ngIf="hasChartData">
+    <h3>Distribución de leche consumida</h3>
+    <canvas baseChart
+      [data]="pieChartData"
+      [type]="pieChartType"
+      [options]="pieChartOptions"
+      [legend]="pieChartLegend"
+      style="max-width: 400px; max-height: 400px;">
+    </canvas>
+  </div>
+
+  <div *ngIf="!hasChartData">
+    <p>No hay datos de consumo de leche para mostrar en el gráfico de este paciente.</p>
+  </div>
+
+  <div class="botones-paciente-container">
+    <button class="btn-regresar" routerLink="/menu-areas">Regresar</button>
+  </div>
+</div>
